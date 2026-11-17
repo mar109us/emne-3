@@ -39,6 +39,7 @@ namespace A315
                     
                     Console.WriteLine("{0} tries. Number is {1} than {2}", countGuess, overOrUnder, guess);
                     Int32.TryParse(Console.ReadLine(), out guess);
+                    
                 }
             }
         }
