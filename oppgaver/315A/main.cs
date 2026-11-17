@@ -8,7 +8,7 @@ namespace A315
             Console.WriteLine("Guess number");
 
             var random = new Random();
-            var number = random.Next(1, 100);
+            var number = random.Next(1, 11);
             int guess;
             bool isNumber = Int32.TryParse(Console.ReadLine(), out guess);
 
@@ -17,6 +17,7 @@ namespace A315
 
             while (!correctGuess)
             {
+                string overOrUnder;
                 if (number == guess)
                 {
                     Console.WriteLine("you guessed correct, number was: {0}", number);
@@ -25,11 +26,18 @@ namespace A315
                 else
                 {
                     countGuess += 1;
-                    Console.WriteLine(
-                        "you guessed wrong, random number was: {0}. you have tried {1} times",
-                        number,
-                        countGuess
-                    );
+                    Console.WriteLine("Wrong, try again");
+                    
+                    if (guess < number)
+                    {
+                        overOrUnder = "higher";
+                    }
+                    else
+                    {
+                        overOrUnder = "lower";
+                    }
+                    
+                    Console.WriteLine("{0} tries. Number is {1} than {2}", countGuess, overOrUnder, guess);
                     Int32.TryParse(Console.ReadLine(), out guess);
                 }
             }
