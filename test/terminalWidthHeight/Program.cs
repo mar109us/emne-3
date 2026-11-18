@@ -1,0 +1,1 @@
+﻿Console.WriteLine($"{Console.WindowWidth} {Console.WindowHeight}");
