@@ -1,4 +1,6 @@
 ﻿int[] dot = [0, 0];
+var reverseHorizontal = false;
+var reverseVertical = false;
 
 while (true) {
     var width = Console.WindowWidth;
@@ -17,10 +19,39 @@ while (true) {
 
     Console.WriteLine(screen);
 
-    Thread.Sleep(200);
+    Thread.Sleep(10);
 
     Console.Clear();
+    
+    if (reverseHorizontal) {
+        dot[0]--;
+    }
+    else {
+        dot[0]++;
+    }
 
-    dot[0]++;
-    dot[1]++;
+    if (reverseVertical) {
+        dot[1]--;
+    }
+    else {
+        dot[1]++;
+    }
+
+    if (dot[0] == width) {
+        reverseHorizontal = true;
+    }
+
+    if (dot[0] == 0) {
+        reverseHorizontal = false;
+    }
+
+    if (dot[1] == height) {
+        reverseVertical = true;
+    }
+
+    if (dot[1] == 0) {
+        reverseVertical = false;
+    }
+
+  
 }
