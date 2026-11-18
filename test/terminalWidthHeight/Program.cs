@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-int[] dot = [1, 1];
+int[] dot = [2, 2];
 var reverseHorizontal = false;
 var reverseVertical = false;
 
@@ -14,13 +14,17 @@ while (true) {
     for (var i = 0; i < height - 1; i++) {
         for (var j = 0; j < width; j++) {
             if (dot[0] == j && dot[1] == i) {
-                screen.Append("████");
-                j += 3;
+                screen.Append("█████████");
             }
 
             if (dot[0] == j && dot[1] == i + 1) {
-                screen.Append("████");
-                j += 3;
+                screen.Append("███ DVD ███");
+                j += 10;
+            }
+
+            if (dot[0] == j && dot[1] == i + 2) {
+                screen.Append("█████████");
+                j += 9;
             }
             else {
                 screen.Append(" ");
@@ -42,24 +46,24 @@ while (true) {
         dot[1]++;
     }
 
-    if (dot[0] >= width - 4) {
+    if (dot[0] >= width - 11) {
         reverseHorizontal = true;
     }
 
-    if (dot[0] == 0) {
+    if (dot[0] == 1) {
         reverseHorizontal = false;
     }
 
-    if (dot[1] >= height - 1) {
+    if (dot[1] >= height - 2) {
         reverseVertical = true;
     }
 
-    if (dot[1] == 0 + 1) {
+    if (dot[1] == 2) {
         reverseVertical = false;
     }
 
     Console.SetCursorPosition(0, 0);
     Console.Write(screen.ToString());
 
-    Thread.Sleep(12);
+    Thread.Sleep(16);
 }
