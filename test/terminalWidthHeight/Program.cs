@@ -14,17 +14,7 @@ while (true) {
     for (var i = 0; i < height - 1; i++) {
         for (var j = 0; j < width; j++) {
             if (dot[0] == j && dot[1] == i) {
-                screen.Append("█████████");
-            }
-
-            if (dot[0] == j && dot[1] == i + 1) {
-                screen.Append("███ DVD ███");
-                j += 10;
-            }
-
-            if (dot[0] == j && dot[1] == i + 2) {
-                screen.Append("█████████");
-                j += 9;
+                screen.Append("█");
             }
             else {
                 screen.Append(" ");
@@ -46,7 +36,7 @@ while (true) {
         dot[1]++;
     }
 
-    if (dot[0] >= width - 11) {
+    if (dot[0] >= width - 1) {
         reverseHorizontal = true;
     }
 
@@ -54,11 +44,11 @@ while (true) {
         reverseHorizontal = false;
     }
 
-    if (dot[1] >= height - 2) {
+    if (dot[1] >= height) {
         reverseVertical = true;
     }
 
-    if (dot[1] == 2) {
+    if (dot[1] == 1) {
         reverseVertical = false;
     }
 
