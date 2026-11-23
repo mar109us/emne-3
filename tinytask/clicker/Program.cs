@@ -1,7 +1,10 @@
 ﻿namespace clicker;
 
 internal class Program {
-    private static void Main() {
-        Console.WriteLine("mew");
+    public static void Main(string[] args) {
+        var click = new Clicker();
+        click.Print();
+        click.Increase();
+        click.Print();
     }
 }
