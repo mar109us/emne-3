@@ -1,5 +1,6 @@
 namespace cards;
 public enum Rank {
+    Ace,
     Two,
     Three,
     Four,
@@ -12,5 +13,4 @@ public enum Rank {
     Knight,
     Queen,
     King,
-    Ace,
 }
