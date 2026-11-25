@@ -3,5 +3,5 @@ public enum Suit {
     Hearts,
     Diamonds,
     Clovers,
-    Spades
+    Spades,
 }

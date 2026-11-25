@@ -12,5 +12,5 @@ public enum Rank {
     Knight,
     Queen,
     King,
-    Ace
+    Ace,
 }

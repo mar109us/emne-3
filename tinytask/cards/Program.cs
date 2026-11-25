@@ -2,8 +2,7 @@
 
 class Program {
     static void Main(string[] args) {
-        
-        Console.WriteLine($"{(Rank)0} of {(Suit)0}");
+        var aCard = new Card((Rank)2, (Suit)2);
+        Console.WriteLine($"{aCard.currentRank} of {aCard.currentSuit}");
     }
-
 }
