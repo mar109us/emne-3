@@ -8,19 +8,20 @@ class Program {
         BuildCards(names, out var cards);
         var selectedCard = cards[0];
 
-        Menu(names, selectedCard);
+        Menu(cards, selectedCard);
     }
 
-    private static void Menu(List<string> names, StampCard selectedCard) {
+    private static void Menu(List<StampCard> cards, StampCard selectedCard) {
         while (true) { 
             Console.Clear();
             Console.WriteLine($"""
-                              Q: Quit N: New Card V: View Cards
+                              [Q]uit | [N]ew Card | [V]iew Cards
+                              
+                              
+                              [SPACE] Buy Coffee
                               
                               Current card: {selectedCard.Name}
                               Stamps: {selectedCard.Count}
-                              
-                              Space: Buy Coffee
                               """);
             var keyInfo = Console.ReadKey(true);
 
@@ -36,22 +37,37 @@ class Program {
                                   
                                   Name: 
                                   """);
-                names.Add(Console.ReadLine());
-                BuildCards(names, out var cards);
+                cards.Add(new StampCard(Console.ReadLine()));
             }
 
             if (keyInfo.Key == ConsoleKey.V) {
                 Console.Clear();
                 Console.WriteLine("""
+                                  [B]ack | Select: 1-4
+                                  
                                   - Card Overview -
                                   
-                                  Backspace: Back
-                                  
                                   """);
-                BuildCards(names, out var cards);
+                PrintCards(cards);
                 while (true) {
                     var viewKeyInfo = Console.ReadKey(true);
-                    if (viewKeyInfo.Key == ConsoleKey.Backspace) break;
+                    if (viewKeyInfo.Key == ConsoleKey.B) break;
+                    if (viewKeyInfo.Key == ConsoleKey.D1) {
+                        selectedCard = cards[0];
+                        break;
+                    }
+                    if (viewKeyInfo.Key == ConsoleKey.D2) {
+                        selectedCard = cards[1];
+                        break;
+                    }
+                    if (viewKeyInfo.Key == ConsoleKey.D3) {
+                        selectedCard = cards[2];
+                        break;
+                    }
+                    if (viewKeyInfo.Key == ConsoleKey.D4) {
+                        selectedCard = cards[3];
+                        break;
+                    }
                 }
             }
         }
@@ -64,7 +80,9 @@ class Program {
             var card = new StampCard(name);
             cards.Add(card);
         }
-        
+    }
+
+    private static void PrintCards(List<StampCard> cards) {
         foreach (var card in cards) {
             Console.WriteLine($"{cards.IndexOf(card) + 1}. {card.Name} {card.Count}");
         }
